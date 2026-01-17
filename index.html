@@ -2,94 +2,147 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Wedding Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Card | Quang Thiết & Nie Quỳnh</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 <style>
 body {
   margin: 0;
-  background: #ffffff;
-  font-family: 'Segoe UI', sans-serif;
+  background: url("quynh.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.wrapper {
-  width: 50vw;
-  max-width: 700px;
-  min-width: 320px;
-  background: #e0f7f5;
-  border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.15);
-  text-align: center;
+  min-height: 100vh;
 }
 
 
-.card h2 {
-  font-size: 30px;
-  color: #16a085;
-}
 
-.card p {
-  font-size: 18px;
-  color: #333;
-}
+  .wrapper {
+    width: 90%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 50px 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid #e0d5c1; /* Viền mảnh sang trọng */
+    position: relative;
+  }
 
-.heart {
-  width: 60px;
-  height: 60px;
-  background: #16a085;
-  position: relative;
-  transform: rotate(-45deg);
-  margin: 20px auto;
-  animation: beat 1s infinite;
-}
+  /* Tạo khung viền trang trí bên trong */
+  .wrapper::after {
+    content: '';
+    position: absolute;
+    top: 15px; left: 15px; right: 15px; bottom: 15px;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
-.heart:before, .heart:after {
-  content:"";
-  width:60px;
-  height:60px;
-  background:#16a085;
-  border-radius:50%;
-  position:absolute;
-}
+  .card h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 42px;
+    color: #b8860b; /* Màu vàng đồng */
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
 
-.heart:before {
-  top:-30px;
-  left:0;
-}
+  .names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: #333;
+    margin: 20px 0;
+  }
 
-.heart:after {
-  left:30px;
-  top:0;
-}
+  .details {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    letter-spacing: 1px;
+  }
 
-@keyframes beat {
-  0%,100% {transform: rotate(-45deg) scale(1);}
-  50% {transform: rotate(-45deg) scale(1.3);}
-}
+  .heart {
+    width: 40px;
+    height: 40px;
+    background: #e74c3c;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: 30px auto;
+    animation: beat 1.2s infinite;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+  }
 
-footer {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #555;
-}
+  .heart:before, .heart:after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: #e74c3c;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .heart:before { top: -20px; left: 0; }
+  .heart:after { left: 20px; top: 0; }
+
+  @keyframes beat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.15); }
+  }
+
+  footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+  }
+
+  .divider {
+    width: 50px;
+    height: 2px;
+    background: #d4af37;
+    margin: 15px auto;
+  }
 </style>
 </head>
 <body>
 
 <div class="wrapper">
   <div class="card">
-    <h2>Thiệp Cưới</h2>
+    <h2>Trân Trọng Kính Mời</h2>
+    <div class="divider"></div>
+    
+    <p class="details">Đến dự buổi tiệc thành hôn của</p>
+    
+    <div class="names">Quang Thiết & Như Quỳnh</div>
+    
     <div class="heart"></div>
-    <p><strong>Quang Thiết & Nie Quỳnh</strong></p>
-    <p>Trân trọng kính mời</p>
-    <p>📅 18 / 03 / 2028</p>
-    <p>📍 Trung tâm Hội nghị Diamond, TP.HCM</p>
-    <footer>Hân hạnh được đón tiếp 💖</footer>
+    
+    <div class="details">
+      <p>📅 <strong>28 . 03 . 2026</strong></p>
+      <p>📍 Trung tâm Hội nghị Trống Đồng Palace<br>TP. Hà Nội</p>
+    </div>
+
+    <footer>Sự hiện diện của bạn là niềm hạnh phúc của chúng tôi 💖</footer>
   </div>
 </div>
 
 </body>
+<audio id="bgMusic" autoplay loop>
+  <source src="quynh.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.onload = function() {
+  let music = document.getElementById("bgMusic");
+  music.play().catch(() => {
+    console.log("Autoplay bị chặn, click vào trang để phát nhạc.");
+    document.body.addEventListener("click", () => music.play(), {once:true});
+  });
+}
+</script>
+
+
 </html>
