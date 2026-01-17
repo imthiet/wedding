@@ -8,103 +8,110 @@
 <style>
 body {
   margin: 0;
-  background: url("quynh.jpg") no-repeat center center fixed;
-  background-size: cover;
   font-family: 'Quicksand', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+
+  /* fix background mobile */
+  background-image: url("quynh.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll; /* thay fixed để mobile hiển thị */
 }
 
+.wrapper {
+  width: 92%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 15px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  border: 1px solid #e0d5c1;
+  position: relative;
+}
 
+/* viền trang trí */
+.wrapper::after {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  opacity: 0.4;
+}
 
-  .wrapper {
-    width: 90%;
-    max-width: 500px;
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 50px 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    text-align: center;
-    border: 1px solid #e0d5c1; /* Viền mảnh sang trọng */
-    position: relative;
-  }
+/* tiêu đề */
+.card h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 34px;
+  color: #b8860b;
+  margin: 0;
+  white-space: nowrap; /* không xuống dòng */
+}
 
-  /* Tạo khung viền trang trí bên trong */
-  .wrapper::after {
-    content: '';
-    position: absolute;
-    top: 15px; left: 15px; right: 15px; bottom: 15px;
-    border: 1px solid #d4af37;
-    border-radius: 10px;
-    pointer-events: none;
-    opacity: 0.5;
-  }
+/* tên cô dâu chú rể */
+.names {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: #333;
+  margin: 20px 0;
+  white-space: nowrap; /* không xuống dòng */
+}
 
-  .card h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 42px;
-    color: #b8860b; /* Màu vàng đồng */
-    margin-bottom: 10px;
-    margin-top: 0;
-  }
+/* nội dung */
+.details {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
 
-  .names {
-    font-family: 'Dancing Script', cursive;
-    font-size: 32px;
-    color: #333;
-    margin: 20px 0;
-  }
+/* trái tim */
+.heart {
+  width: 35px;
+  height: 35px;
+  background: #e74c3c;
+  position: relative;
+  transform: rotate(-45deg);
+  margin: 20px auto;
+  animation: beat 1.2s infinite;
+}
 
-  .details {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.8;
-    letter-spacing: 1px;
-  }
+.heart:before, .heart:after {
+  content: "";
+  width: 35px;
+  height: 35px;
+  background: #e74c3c;
+  border-radius: 50%;
+  position: absolute;
+}
 
-  .heart {
-    width: 40px;
-    height: 40px;
-    background: #e74c3c;
-    position: relative;
-    transform: rotate(-45deg);
-    margin: 30px auto;
-    animation: beat 1.2s infinite;
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-  }
+.heart:before { top: -18px; left: 0; }
+.heart:after { left: 18px; top: 0; }
 
-  .heart:before, .heart:after {
-    content: "";
-    width: 40px;
-    height: 40px;
-    background: #e74c3c;
-    border-radius: 50%;
-    position: absolute;
-  }
+@keyframes beat {
+  0%, 100% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.15); }
+}
 
-  .heart:before { top: -20px; left: 0; }
-  .heart:after { left: 20px; top: 0; }
+footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+}
 
-  @keyframes beat {
-    0%, 100% { transform: rotate(-45deg) scale(1); }
-    50% { transform: rotate(-45deg) scale(1.15); }
-  }
+.divider {
+  width: 50px;
+  height: 2px;
+  background: #d4af37;
+  margin: 12px auto;
+}
 
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #888;
-    font-style: italic;
-  }
-
-  .divider {
-    width: 50px;
-    height: 2px;
-    background: #d4af37;
-    margin: 15px auto;
-  }
 </style>
 </head>
 <body>
@@ -116,7 +123,7 @@ body {
     
     <p class="details">Đến dự buổi tiệc thành hôn của</p>
     
-    <div class="names">Quang Thiết & Như Quỳnh</div>
+    <div class="names">Quang Thiết & Nie Quỳnh</div>
     
     <div class="heart"></div>
     
